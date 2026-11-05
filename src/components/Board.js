@@ -19,7 +19,6 @@ class Board extends React.Component {
       visible: true
     }
 
-    // number of rows that a piece will fall
     // todo: also make a second piece for the background neutral
     // todo: have a piece bounce when it lands
     let rowsToFall = (this.props.rows * 100) + 'px'
