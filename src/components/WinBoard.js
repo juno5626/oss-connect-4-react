@@ -23,17 +23,28 @@ class WinBoard extends React.Component {
   }
 
   render() {
-    return (
-      <>
-        <div className='col-md-3'></div>
-        <div className='col-md-6'>
-          <Animated animationIn={this.state.animationIn} isVisible={true} style={this.styles.winStyle}>
-            {this.props.playerWhoWon} has won!!!!
-          </Animated>
-        </div>
-        <div className='col-md-3'></div>
-      </>
-    )
+    if (this.props.playerWhoWon === 'red') {
+      return (
+        <>
+          <div className='col-md-6'>
+            <Animated animationIn={this.state.animationIn} isVisible={true} style={this.styles.winStyle}>
+              학부이름은 Ai융합학부
+            </Animated>
+          </div>
+        </>
+      )
+    }
+    else if (this.props.playerWhoWon === 'blue') {
+      return (
+        <>
+          <div className='col-md-6'>
+            <Animated animationIn={this.state.animationIn} isVisible={true} style={this.styles.winStyle}>
+              학부 이름은 전산전자공학부
+            </Animated>
+          </div>
+        </>
+      )  
+    }
   }
 }
 

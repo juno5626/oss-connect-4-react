@@ -3,6 +3,7 @@ import React, { createRef } from "react";
 import Space from "./Space"
 import WinBoard from "./WinBoard"
 import RestartButton from "./RestartButton"
+import { eceImages, aieImages } from '../data/spaceImages';
 
 
 const util = require("util")
@@ -94,6 +95,18 @@ class Board extends React.Component {
     if (emptySpace) {
       this.takeTurn().then((color) => {
         emptySpace.style.backgroundColor = color;
+
+        // 2. 파랑(컴전) vs 빨강(애융) 전공 이미지 랜덤 선택!
+        const imageList = color === 'blue' ? eceImages : aieImages;
+        const randomImg = imageList[Math.floor(Math.random() * imageList.length)];
+        const safeImgUrl = encodeURI(randomImg);
+        
+        // 3. 칸 안에 원형 이미지 깔끔하게 채우기
+        emptySpace.style.backgroundImage = `url("${safeImgUrl}")`;
+        emptySpace.style.backgroundSize = 'cover';
+        emptySpace.style.backgroundPosition = 'center';
+
+
         emptySpace.style.transition = 'transform 1s';
         emptySpace.style.transformStyle = 'preserve-3d';
         emptySpace.style.top = '-700px';
@@ -116,7 +129,7 @@ class Board extends React.Component {
       'marginTop': '0',
       'padding': '0',
       'position': 'relative',
-      'right': '50px',
+      'right': '15px',
     }
   }
 
@@ -237,7 +250,6 @@ class Board extends React.Component {
     Board = (
       this.rowArr.map((r) => (
         <div key={`row-${r}`} className='row' style={this.styles.boardRow}>
-        <div className='col-sm-3'></div>
           {this.colArr.map((c) => (
             <Space
               // ref here to try and find the piece, instead of using document.getelement

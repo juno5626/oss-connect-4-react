@@ -18,6 +18,8 @@ class Space extends React.Component {
       'border': '2px black solid',
       'marginTop': 0,
       'padding': 0,
+      'minWidth': '100px',
+      'maxWidth': 'none',
       'borderRadius': '8px',
     },
     boardSpace: {
@@ -27,6 +29,7 @@ class Space extends React.Component {
       'marginTop': 0,
       'padding': 0,
       'height': '95px',
+      'width': '95px'
     }
   }
 

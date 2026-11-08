@@ -8,7 +8,7 @@ const RestartButton = (props) => {
       onClick={props.restart}
       style={{ marginTop: '20px', fontWeight: 'bold' }}
     >
-      재입학??
+      N차 간담회 다시 시작
     </button>
   )
 }

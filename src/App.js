@@ -8,7 +8,8 @@ function App() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: '20px'
+        marginTop: '20px',
+        gap: '200px',
       }}>
         <div style={{ textAlign: 'center' }}>
           <img 
@@ -19,7 +20,9 @@ function App() {
           <h4 style={{ marginTop: '10px', fontWeight: 'bold' , color:'blue'}}>전산</h4>
         </div>
 
-        <Board rows={6} columns={7} />
+        <div style={{ flexShrink: 0, minWidth: '720px' }}>
+          <Board rows={6} columns={7} />
+        </div>
 
         <div style={{ textAlign: 'center' }}>
           <img 
